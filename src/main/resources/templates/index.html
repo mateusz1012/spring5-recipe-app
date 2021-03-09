@@ -6,7 +6,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"
-    th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.min.css}">
+          th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.min.css}">
 
     <script src="/webjars/jquery/2.5.4/jquery.min.js"></script>
 
@@ -32,19 +32,23 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Description</th>
+                                <th>View</th>
                             </tr>
                             </thead>
                             <tr th:remove="all">
-                                <td th:text="${recipe.id}">123</td>
-                                <td th:text="${recipe.description}">Tasty Goodness 1</td>
+                                <td>1</td>
+                                <td>Tasty Goodness 1</td>
+                                <td><a href="#">View</a></td>
                             </tr>
                             <tr th:remove="all">
-                                <td th:text="${recipe.id}">888</td>
-                                <td th:text="${recipe.description}">Tasty Goodness 2</td>
+                                <td>2</td>
+                                <td>Tasty Goodness 2</td>
+                                <td><a href="#">View</a></td>
                             </tr>
                             <tr th:each="recipe : ${recipes}">
                                 <td th:text="${recipe.id}">999</td>
                                 <td th:text="${recipe.description}">Tasty Goodness 3</td>
+                                <td><a href="#" th:href="@{'/recipe/show/' + ${recipe.id}}">View</a></td>
                             </tr>
                         </table>
                     </div>
