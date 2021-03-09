@@ -29,7 +29,8 @@ class RecipeControllerTest {
     }
 
     @Test
-    void testGetRecipe() throws Exception {
+    public void testGetRecipe() throws Exception {
+
         Recipe recipe = new Recipe();
         recipe.setId(1L);
 

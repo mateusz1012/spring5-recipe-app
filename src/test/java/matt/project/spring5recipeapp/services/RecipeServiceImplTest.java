@@ -1,5 +1,7 @@
 package matt.project.spring5recipeapp.services;
 
+import matt.project.spring5recipeapp.converters.RecipeCommandToRecipe;
+import matt.project.spring5recipeapp.converters.RecipeToRecipeCommand;
 import matt.project.spring5recipeapp.domain.Recipe;
 import matt.project.spring5recipeapp.repositories.RecipeRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,18 +17,24 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
-class RecipeServiceImplTest {
+public class RecipeServiceImplTest {
     
     RecipeServiceImpl recipeService;
     
     @Mock
     RecipeRepository recipeRepository;
 
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommand;
+
+    @Mock
+    RecipeCommandToRecipe recipeCommandToRecipe;
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
 
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
     }
 
     @Test
