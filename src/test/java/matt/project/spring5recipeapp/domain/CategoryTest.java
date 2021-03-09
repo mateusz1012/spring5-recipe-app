@@ -15,7 +15,7 @@ class CategoryTest {
     }
 
     @Test
-    void getId() {
+    void getId() throws Exception{
         Long idValue = 4L;
 
         category.setId(idValue);
