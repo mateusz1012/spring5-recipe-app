@@ -1,8 +1,8 @@
 package matt.project.spring5recipeapp.controllers;
 
 import matt.project.spring5recipeapp.services.RecipeService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.ui.Model;
@@ -23,15 +23,15 @@ public class IndexControllerTest {
 
     IndexController controller;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
 
         controller = new IndexController(recipeService);
     }
 
     @Test
-    void getIndexPage() {
+    public void getIndexPage() {
 
         String viewName = controller.getIndexPage(model);
 
