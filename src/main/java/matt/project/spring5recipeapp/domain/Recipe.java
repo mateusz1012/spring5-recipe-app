@@ -1,5 +1,5 @@
 package matt.project.spring5recipeapp.domain;
-//package ten można nazwać również "model"
+//package ten można nazwać również "model" zamiast domain
 
 import lombok.Data;
 
@@ -45,8 +45,10 @@ public class Recipe {
     private Set<Category> categories = new HashSet<>();
 
     public void setNotes(Notes notes) {
-        this.notes = notes;
-        notes.setRecipe(this);
+        if (notes != null) {
+            this.notes = notes;
+            notes.setRecipe(this);
+        }
     }
 
     public Recipe addIngredient(Ingredient ingredient) {
