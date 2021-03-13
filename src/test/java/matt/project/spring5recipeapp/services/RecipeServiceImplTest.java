@@ -1,5 +1,6 @@
 package matt.project.spring5recipeapp.services;
 
+import matt.project.spring5recipeapp.commands.RecipeCommand;
 import matt.project.spring5recipeapp.converters.RecipeCommandToRecipe;
 import matt.project.spring5recipeapp.converters.RecipeToRecipeCommand;
 import matt.project.spring5recipeapp.domain.Recipe;
@@ -53,7 +54,27 @@ public class RecipeServiceImplTest {
     }
 
     @Test
-    void getRecipes() {
+    public void getRecipeCoomandByIdTest() throws Exception {
+        Recipe recipe = new Recipe();
+        recipe.setId(1L);
+        Optional<Recipe> recipeOptional = Optional.of(recipe);
+
+        when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
+
+        RecipeCommand recipeCommand = new RecipeCommand();
+        recipeCommand.setId(1L);
+
+        when(recipeToRecipeCommand.convert(any())).thenReturn(recipeCommand);
+
+        RecipeCommand commandById = recipeService.findCommandById(1L);
+
+        assertNotNull("Null recipe returned", String.valueOf(commandById));
+        verify(recipeRepository, times(1)).findById(anyLong());
+        verify(recipeRepository, never()).findAll();
+    }
+
+    @Test
+    void getRecipesTest() {
         Recipe recipe = new Recipe();
         HashSet recipesData = new HashSet();
         recipesData.add(recipe);

@@ -13,7 +13,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-class IndexControllerTest {
+public class IndexControllerTest {
 
     @Mock
     RecipeService recipeService;

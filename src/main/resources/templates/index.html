@@ -11,7 +11,8 @@
 
 </head>
 <body>
-
+<!--/*@thymesVar id="recipes" type="java.util.List"*/-->
+<!--/*@thymesVar id="recipe" type="matt.project.spring5recipeapp.domain.Recipe"*/-->
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row justify-content-center">
         <div class="col-md-6 offset-md-3 mx-auto">
@@ -28,6 +29,7 @@
                                 <th>ID</th>
                                 <th>Description</th>
                                 <th>View</th>
+                                <th>Update</th>
                             </tr>
                             </thead>
                             <tr th:remove="all">
@@ -41,10 +43,10 @@
                                 <td><a href="#">View</a></td>
                             </tr>
                             <tr th:each="recipe : ${recipes}">
-                                <!--/*@thymesVar id="recipe" type="matt.project.spring5recipeapp.domain"*/-->
                                 <td th:text="${recipe.id}">999</td>
                                 <td th:text="${recipe.description}">Tasty Goodness 3</td>
-                                <td><a href="#" th:href="@{'/recipe/show/' + ${recipe.id}}">View</a></td>
+                                <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/show'}">View</a></td>
+                                <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/update'}">Update</a></td>
                             </tr>
                         </table>
                     </div>

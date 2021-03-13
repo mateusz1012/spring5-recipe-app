@@ -1,11 +1,11 @@
 package matt.project.spring5recipeapp.domain;
 
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class CategoryTest {
+public class CategoryTest {
 
     Category category;
 
@@ -15,7 +15,7 @@ class CategoryTest {
     }
 
     @Test
-    void getId() throws Exception{
+    public void getId() throws Exception{
         Long idValue = 4L;
 
         category.setId(idValue);
@@ -24,10 +24,10 @@ class CategoryTest {
     }
 
     @Test
-    void getDescription() {
+    public void getDescription() {
     }
 
     @Test
-    void getRecipes() {
+    public void getRecipes() {
     }
 }
